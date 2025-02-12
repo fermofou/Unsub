@@ -1,13 +1,7 @@
-import os 
-import mysql.connector
 import pandas as pd
-from mysql.connector import Error
-from dotenv import load_dotenv
-
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import streamlit as st
-import altair as alt
 import numpy as np
 
 # Streamlit UI header
