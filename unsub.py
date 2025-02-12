@@ -7,7 +7,7 @@ import numpy as np
 # Streamlit UI header
 st.title("UnsubMe")
 
-# Define services and their subscription levels with corresponding monthly costs
+# pre defined.
 services = {
     'Disney+': {'Basic: $8': 8, 'Premium: $11': 11},
     'Netflix': {'Basic: $7': 7, 'Standard: $15': 15, 'Premium: $23': 23},
@@ -15,7 +15,9 @@ services = {
     'Spotify': {'Free': 0, 'Premium': 10}
 }
 
-# Create columns for each service
+##add button to create new service with cost, have dropdown of popular services, if possible add button - to remove a service from grid
+
+# Create columns for each service - change that max 4 columns appear, else put under
 columns = st.columns(len(services))
 selected_subscriptions = {}
 
@@ -26,9 +28,11 @@ servicesLinks = {
     'Spotify': 'https://www.spotify.com/mx/account/cancel'
 }
 
+#add services links to dictionary of popular sites like 
+
 for (service, options), col in zip(services.items(), columns):
     with col:
-        show_options = st.checkbox(f'Show {service} options')
+        show_options = st.checkbox(f' {service} ')
         if show_options:
             levels = list(options.keys())
             default_level = levels[0]
@@ -43,7 +47,7 @@ for (service, options), col in zip(services.items(), columns):
             )
 
 # User input for monthly budget
-myBudget = st.slider("My Budget per month ($):", 1, 150, 50)
+myBudget = st.slider("My Budget per month ($):", 1, 150, 20)
 
 # Calculate costs
 individual_costs = pd.DataFrame(list(selected_subscriptions.items()), columns=['Service', 'Monthly Cost'])
@@ -126,7 +130,7 @@ for i in range(num_pies):
     # Compute the angle in degrees of the center of the wedge
         angle = (wedge.theta2 + wedge.theta1) / 2.0
     # Convert angle to radians for placement
-        x = np.cos(np.deg2rad(angle)) * 0.30
+        x = np.cos(np.deg2rad(angle)) * 0.37
         y = np.sin(np.deg2rad(angle)) * 0.37
         ax.text(
             x, y,
